@@ -7,13 +7,13 @@ public class Biblioteca {
 	private CadastroLivros livros;
 	private CadastroUsuario usuarios;
 	private ArrayList<Reservas> reserva;
+	private ArrayList<Emprestimo> emp;
 	
 	public Biblioteca() {
 		usuarios = new CadastroUsuario();
 		livros = new CadastroLivros();
 		reserva = new ArrayList<Reservas>();
-	}
-		
+	}		
 	public boolean setReservas(int ISBN, String login){
 		Reservas r = new Reservas();
 		
@@ -41,6 +41,16 @@ public class Biblioteca {
 				return true;
 			}
 		}
+		return false;
+	}
+	
+	public boolean addEmprestimo(Usuario user, Livro book){
+		Emprestimo e = new Emprestimo();
+		e.setUser(user);
+		if(e.addBook(book)){
+			this.emp.add(e);
+			return true;
+		}		
 		return false;
 	}
 }

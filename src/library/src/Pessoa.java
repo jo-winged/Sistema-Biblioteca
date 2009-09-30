@@ -4,7 +4,6 @@ package library.src;
 public class Pessoa {
 	private String nome;
 	public Pessoa() {
-		// TODO Auto-generated constructor stub
 	}
 	public String getNome() {
 		return nome;
