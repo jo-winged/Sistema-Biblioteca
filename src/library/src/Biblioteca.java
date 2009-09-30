@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 
 public class Biblioteca {
-	CadastroLivros livros;
-	CadastroUsuario usuarios;
-	ArrayList<Reservas> reserva;
+	private CadastroLivros livros;
+	private CadastroUsuario usuarios;
+	private ArrayList<Reservas> reserva;
 	
 	public Biblioteca() {
 		usuarios = new CadastroUsuario();
