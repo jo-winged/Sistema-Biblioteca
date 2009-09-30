@@ -1,8 +1,8 @@
 package library.src;
 
 public class Reservas {
-	Usuario user;
-	Livro book;
+	private Usuario user;
+	private Livro book;
 	public Reservas() {
 		user = new Usuario();
 		book = new Livro();

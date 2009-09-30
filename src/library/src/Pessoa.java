@@ -2,9 +2,8 @@
 package library.src;
 
 public class Pessoa {
-	String nome;
+	private String nome;
 	public Pessoa() {
-		// TODO Auto-generated constructor stub
 	}
 	public String getNome() {
 		return nome;
