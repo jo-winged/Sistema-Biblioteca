@@ -1,5 +1,7 @@
 package library.tests;
 
+import java.util.ArrayList;
+
 import junit.framework.Assert;
 import junit.framework.TestCase;
 import library.src.CadastroUsuario;
@@ -12,11 +14,27 @@ public class Test_CadastroUsuario extends TestCase {
 	}
 
 	public void testGetUsuarios() {
-		fail("Not yet implemented");
+		CadastroUsuario cadUser = new CadastroUsuario();
+		ArrayList<Usuario>list = new ArrayList<Usuario>();
+		Usuario u = new Usuario();
+		u.setLogin("login");
+		list.add(u);
+		cadUser.setUsuarios(list);
+		
+		assertEquals("login", cadUser.getUsuarios().get(0).getLogin());
+		
 	}
 
 	public void testSetUsuarios() {
-		fail("Not yet implemented");
+		CadastroUsuario cadUser = new CadastroUsuario();
+		ArrayList<Usuario>list = new ArrayList<Usuario>();
+		Usuario u = new Usuario();
+		u.setLogin("login");
+		list.add(u);
+		cadUser.setUsuarios(list);
+		
+		assertEquals(true, cadUser.removeUser(u));
+		
 	}
 
 	public void testInsertUser() {
