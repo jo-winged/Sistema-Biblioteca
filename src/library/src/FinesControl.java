@@ -7,7 +7,14 @@ public class FinesControl {
 	private ArrayList<Fine> finesNotPaid;
 	private ArrayList<Fine> finesPaid;
 	private FinesControl(){
-		
+		finesNotPaid = new ArrayList<Fine>();
+		finesPaid = new ArrayList<Fine>();
+	}
+	
+	public static FinesControl New(){
+		if (FinesControl.self == null)
+			FinesControl.self = new FinesControl();
+		return FinesControl.self;
 	}
 	
 	public void addFine(Fine fine){
@@ -15,7 +22,8 @@ public class FinesControl {
 	}
 	
 	public boolean pay(Fine fine){
-		if (finesNotPaid.remove(fine)){
+		if (!fine.wasPaid()){
+			finesNotPaid.remove(fine);
 			finesPaid.add(fine);
 			return true;
 		}else{
@@ -23,10 +31,28 @@ public class FinesControl {
 		}
 	}
 	
-	public static FinesControl New(){
-		if (FinesControl.self == null)
-			FinesControl.self = new FinesControl();
-		return FinesControl.self;
+	public int FinesPaid() {
+		return finesPaid.size();
+	}
+	
+	public int FinesNotPaid() {
+		return finesNotPaid.size();
+	}
+
+	public void addFine(Usuario user, int i) {
+		Fine newFine = new Fine();
+		newFine.setNumDays(i);
+		newFine.setUser(user);
+	}
+
+	public ArrayList<Fine> getFines(Usuario user) {
+		ArrayList<Fine> fines = new ArrayList<Fine>();
+		for (Fine notPaid:finesNotPaid){
+			if (notPaid.getUser().getLogin() == user.getLogin()){
+				fines.add(notPaid);
+			}
+		}
+		return fines;
 	}
 }
 
