@@ -10,16 +10,16 @@ public class CadastroLivros {
 	public ArrayList<Livro> getBooksList(){
 		return livros;
 	}
-	public Livro searchBookISBN(int ISBN){
+	public Livro searchBookISBN(String ISBN){
 		for(Livro book:livros){
-			if(book.getISBN() == ISBN)
+			if(book.getISBN().equals(ISBN))
 				return book;
 		}
 		return null;
 	}
 	public Livro searchBookEditora(String editora){
 		for(Livro book:livros){
-			if(book.getEditora() == editora)
+			if(book.getEditora().equals(editora))
 				return book;
 		}
 		return null;

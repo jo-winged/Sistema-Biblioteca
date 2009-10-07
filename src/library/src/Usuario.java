@@ -20,7 +20,7 @@ public class Usuario extends Pessoa{
 	}
 	
 	public boolean validateLogin(String pass){
-		return (pass == senha);
+		return (pass.equals(senha));
 	}
 	
 	public void setSenha(String senha) {
@@ -44,6 +44,11 @@ public class Usuario extends Pessoa{
 	public void payFine(){
 		
 		haveFines -= 1;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		Usuario l = (Usuario) obj;
+		return l.getLogin().equals(this.getLogin());
 	}
 	
 }

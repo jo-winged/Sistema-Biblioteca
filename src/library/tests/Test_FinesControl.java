@@ -12,8 +12,9 @@ import org.junit.Test;
 
 public class Test_FinesControl {
 
-	public void cleanUp(){
+	private void cleanUp(){
 		FinesControl control = FinesControl.New();
+		control.cleanUp();
 		
 	}
 	
@@ -28,6 +29,7 @@ public class Test_FinesControl {
 		assertTrue(control.FinesNotPaid() == 1);
 		assertTrue(control.FinesPaid() == 0);
 		
+		this.cleanUp();
 		
 	}
 
@@ -45,7 +47,7 @@ public class Test_FinesControl {
 		
 		assertTrue(control.FinesNotPaid() == 0);
 		assertTrue(control.FinesPaid() == 1);
-		
+		this.cleanUp();
 	}
 
 	@Test
@@ -54,7 +56,7 @@ public class Test_FinesControl {
 		FinesControl control2 = FinesControl.New();
 		
 		assertTrue(control1 == control2);
-		
+		this.cleanUp();
 	}
 
 	@Test
@@ -65,12 +67,15 @@ public class Test_FinesControl {
 		user.setLogin("parrot");
 		control.addFine(user, 3);
 		assertTrue(user.howManyFines() == 1);
+		
 		ArrayList<Fine> fines = control.getFines(user);
 		assertTrue(fines.size() == 1);
 		
 		Usuario user2 = new Usuario();
 		user2.setLogin("Polly");
 		control.addFine(user2, 3);
+		
+		this.cleanUp();
 	}
 	
 	

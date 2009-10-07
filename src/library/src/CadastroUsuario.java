@@ -17,7 +17,7 @@ public class CadastroUsuario {
 	// login deve ser único
 	public void insertUser(Usuario user) throws Throwable{
 		for (Usuario u: usuarios){
-			if (u.getLogin() == user.getLogin()){
+			if (u.getLogin().equals(user.getLogin())){
 				throw new Throwable("Usuário já existe!!!");
 			}
 		}
@@ -27,7 +27,7 @@ public class CadastroUsuario {
 		if (user == null)
 			return false;
 		for (Usuario u: usuarios){
-			if (u.getLogin() == user.getLogin()){
+			if (u.getLogin().equals(user.getLogin())){
 				usuarios.remove(u);
 				return true;
 			}
@@ -45,7 +45,7 @@ public class CadastroUsuario {
 
 	public Usuario buscaUsuarioPorLogin(String val){
 		for (Usuario user : usuarios){
-			if (user.getLogin() == val)
+			if (user.getLogin().equals(val))
 				return user;
 		}
 		return null;
@@ -53,7 +53,7 @@ public class CadastroUsuario {
 	
 	public Boolean validPassword(String login, String pass){
 		for (Usuario user : usuarios){
-			if (user.getLogin() == login)
+			if (user.getLogin().equals(login))
 				return (user.validateLogin(pass));
 		}
 		return false;

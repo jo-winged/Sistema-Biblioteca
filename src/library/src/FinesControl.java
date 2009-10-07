@@ -54,5 +54,10 @@ public class FinesControl {
 		}
 		return fines;
 	}
+
+	public void cleanUp() {
+		FinesControl.self = null;
+		FinesControl.New();
+	}
 }
 

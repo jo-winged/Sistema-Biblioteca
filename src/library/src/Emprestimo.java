@@ -1,13 +1,19 @@
 package library.src;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Emprestimo {
 	private Usuario user;
-	private ArrayList<Livro> book;
+	private Livro book;
+	Calendar date;
+	int renews;
+
+
 	public Emprestimo() {
 		user = new Usuario();
-		book = new ArrayList<Livro>();
+		book = new Livro();
+		date = Calendar.getInstance();
+		renews = 0;
 	}
 	public Usuario getUser() {
 		return user;
@@ -15,27 +21,30 @@ public class Emprestimo {
 	public void setUser(Usuario user) {
 		this.user = user;
 	}
-	public ArrayList<Livro> getBook() {
+	public Livro getBook() {
 		return book;
 	}
-	public void setBook(ArrayList<Livro> book) {
+	public void setBook(Livro book) {
 		this.book = book;
 	}
-	
-	public boolean addBook(Livro book){//Verificar, também, se usuario naum tem multas...
-		if(this.user.isProfessor() && (this.book.size() < 5)){
-			this.book.add(book);
+
+	public boolean addBook(Livro book){//Armazenar data de emprestimo...
+		if(user.howManyFines() == 0){
+			this.book = book;
 			return true;
-		}else
-			if(!this.user.isProfessor() && (this.book.size() < 3)){
-				this.book.add(book);
-				return true;
-			}		
-		return false;
+		}		
+		return false;//tem multas naum pagas;
+	}
+
+	public void removeBook(Livro book){//verificar se esta devolvendo no prazo
+		this.book = null;
+
 	}
 	
-	public boolean removeBook(Livro book){//verificar se esta devolvendo no prazo
-		return (this.book.remove(book));
-	
+	@Override
+	public boolean equals(Object obj) {
+		Emprestimo e = (Emprestimo) obj;
+		return this.user.equals(e.getUser());
 	}
+
 }
