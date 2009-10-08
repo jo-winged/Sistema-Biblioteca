@@ -4,12 +4,26 @@ import java.util.ArrayList;
 
 public class CadastroLivros {
 	private ArrayList<Livro> livros;
+	
+
 	public CadastroLivros() {
 		livros = new ArrayList<Livro>();
 	}
+
+	public void addBook(Livro book){
+		if (this.searchBookISBN() == null){
+			livros.append(book);
+		}
+	}
+	
+	public removeBook(String isbn){
+		this.livros.remove(this.searchBookISBN(isbn));
+	}
+	
 	public ArrayList<Livro> getBooksList(){
 		return livros;
 	}
+	
 	public Livro searchBookISBN(String ISBN){
 		for(Livro book:livros){
 			if(book.getISBN().equals(ISBN))
@@ -17,6 +31,7 @@ public class CadastroLivros {
 		}
 		return null;
 	}
+	
 	public Livro searchBookEditora(String editora){
 		for(Livro book:livros){
 			if(book.getEditora().equals(editora))
@@ -24,6 +39,7 @@ public class CadastroLivros {
 		}
 		return null;
 	}
+	
 	public Livro searchBookTitle(String title){
 		for(Livro book:livros){
 			if(book.getTitulo().contains(title))
