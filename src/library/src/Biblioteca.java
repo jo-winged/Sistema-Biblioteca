@@ -67,8 +67,10 @@ public class Biblioteca {
 				return true;
 			}				
 		}			
+			
 		return false;
 	}
+
 
 	public int numEmp(Usuario user){
 		int num = 0;
@@ -82,6 +84,8 @@ public class Biblioteca {
 	public void setCadUsers(CadastroUsuario cad) {
 		usuarios = cad;
 	}
+
+
 	public CadastroUsuario getCadastroUsuarios() {
 		return usuarios;
 	}

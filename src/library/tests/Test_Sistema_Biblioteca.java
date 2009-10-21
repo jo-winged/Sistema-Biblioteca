@@ -5,29 +5,24 @@ package library.tests;
 
 import static org.junit.Assert.*;
 import library.src.Biblioteca;
+import library.src.Emprestimo;
 import library.src.EmprestimoControl;
 import library.src.FinesControl;
 import library.src.Livro;
 import library.src.ReserveControl;
 import library.src.Usuario;
 
-import org.junit.Before;
 import org.junit.Test;
-
 /**
  * @author Wiglot
  *
  */
-public class Teste_Sistema_Biblioteca {
+public class Test_Sistema_Biblioteca {
 
-	private Biblioteca biblioteca;
-	/**
-	 * @throws java.lang.Exception
-	 * Inicializa classe da biblioteca
-	 */
-	@Before
+	private static Biblioteca biblioteca;
+	@Test
 	public void setUp() throws Exception {
-	    biblioteca = new Biblioteca();
+	    Test_Sistema_Biblioteca.biblioteca = new Biblioteca();
 	    assertEquals(biblioteca.getCadastroLivros().getNumBooks(), 0);
 	    assertEquals(biblioteca.getCadastroUsuarios().getNumUsers(), 0);
 	    assertEquals(biblioteca.getCadastroAutores().getNumAuthors(), 0);
@@ -68,10 +63,26 @@ public class Teste_Sistema_Biblioteca {
 		book.setISBN("ISBN");
 		book.setTitulo("Lá e devolta, por Bilbo Bolseiro");
 		biblioteca.getCadastroLivros().addBook(book);
+		biblioteca.getCadastroLivros().setExemplares(book, 3);
 		assertEquals(1, biblioteca.getCadastroLivros().getNumBooks());
+		assertEquals(3, biblioteca.getCadastroLivros().getExemplares(book));
 	}
-
 	
+	@Test
+	public void testBorrow() {
+		Livro book = biblioteca.getCadastroLivros().searchBookISBN("ISBN");
+		Usuario user = biblioteca.getCadastroUsuarios().buscaUsuarioPorLogin("parrot");
+		Emprestimo emp = new Emprestimo();
+		emp.setUser(user);
+		emp.setBook(book);
+		EmprestimoControl.New().addEmprestimo(emp);
+		assertEquals(book, emp.getBook());
+		assertEquals(user, emp.getUser());
+		assertEquals(1,EmprestimoControl.New().getNumEmprestimos());
+		assertEquals(2, biblioteca.getCadastroLivros().getAvaliables(book));
+		
+		
+	}
 
 
 }

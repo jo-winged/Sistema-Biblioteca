@@ -19,8 +19,13 @@ public class CadastroLivros {
 
 	}
 	
+
+	
 	public void removeBook(String isbn){
-		this.livros.remove(this.searchBookISBN(isbn));
+		int index = livros.indexOf(this.searchBookISBN(isbn));
+		this.livros.remove(index);
+		this.exemplares.remove(index);
+		
 	}
 	
 	public ArrayList<Livro> getBooksList(){
@@ -52,11 +57,10 @@ public class CadastroLivros {
 	}
 
 	public int getExemplares(Livro book) {
-		for (Livro l:livros){
-		    if (book.equals(l))
-		      return 1;
-		}
-		return 0;
+		int index = livros.indexOf(book);
+		if (index < 0)
+				return -1;
+		return exemplares.get(index);
 	}
 
 	public void setExemplares(Livro book, int exemplares) {
@@ -65,7 +69,7 @@ public class CadastroLivros {
 			return;
 		Integer k = this.exemplares.get(index);
 		k = exemplares;//ToDo alterar, não inserir
-		
+
 	}
 
 	public int getAvaliables(Livro book ) {
@@ -73,7 +77,6 @@ public class CadastroLivros {
 	}
 
 	public int getNumBooks() {
-		// TODO Auto-generated method stub
 		return livros.size();
 	}
 }
