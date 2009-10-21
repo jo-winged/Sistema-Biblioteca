@@ -18,6 +18,12 @@ public class Reservas {
 	}
 	public void setBook(Livro book) {
 		this.book = book;
-		this.book.setReserved();
+	}
+
+	public boolean equals(Object obj) {
+		Reservas r = (Reservas) obj;
+		if (r.getBook().equals(this.getBook()) && r.getUser().equals(this.getUser()) )
+		    return true;
+		return false;
 	}
 }

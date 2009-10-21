@@ -1,13 +1,21 @@
 package library.src;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Emprestimo {
 	private Usuario user;
-	private ArrayList<Livro> book;
+	private Livro book;
+	Date date;
+	int renews;
+
+
 	public Emprestimo() {
 		user = new Usuario();
-		book = new ArrayList<Livro>();
+		book = new Livro();
+		date = new Date();
+		renews = 0;
 	}
 	public Usuario getUser() {
 		return user;
@@ -15,27 +23,47 @@ public class Emprestimo {
 	public void setUser(Usuario user) {
 		this.user = user;
 	}
-	public ArrayList<Livro> getBook() {
+	public Livro getBook() {
 		return book;
 	}
-	public void setBook(ArrayList<Livro> book) {
+	public void setBook(Livro book) {
 		this.book = book;
 	}
 	
-	public boolean addBook(Livro book){//Verificar, também, se usuario naum tem multas...
-		if(this.user.isProfessor() && (this.book.size() < 5)){
-			this.book.add(book);
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public int getRenews() {
+		return renews;
+	}
+	public void setRenews(int renews) {
+		this.renews = renews;
+	}
+	public boolean addBook(Livro book){//Armazenar data de emprestimo...
+		if(user.howManyFines() == 0){
+			this.date.setDate(this.date.getDate() + 7);
+			this.book = book;
 			return true;
-		}else
-			if(!this.user.isProfessor() && (this.book.size() < 3)){
-				this.book.add(book);
-				return true;
-			}		
-		return false;
+		}		
+		return false;//tem multas naum pagas;
+	}
+
+	public void removeBook(){//verificar se esta devolvendo no prazo //ToDo Refatorar para devolve
+		Date dataEntrega = new Date();
+		if(this.date.compareTo(dataEntrega) < 0){
+			FinesControl fine = FinesControl.New();
+			fine.addFine(this.user, (dataEntrega.getDate() - this.date.getDate()));		
+		}			
+		this.book = null;
 	}
 	
-	public boolean removeBook(Livro book){//verificar se esta devolvendo no prazo
-		return (this.book.remove(book));
-	
+	@Override
+	public boolean equals(Object obj) {
+		Emprestimo e = (Emprestimo) obj;
+		return this.user.equals(e.getUser());
 	}
+
 }
