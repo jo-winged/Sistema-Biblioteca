@@ -1,7 +1,9 @@
 package library.interfaces;
 
 import library.src.Biblioteca;
+import library.src.CadastroAutores;
 
+import com.trolltech.qt.core.QObject;
 import com.trolltech.qt.gui.*;
 
 public class Other extends QMainWindow {
@@ -25,9 +27,23 @@ public class Other extends QMainWindow {
     public Other(QWidget parent) {
         super(parent);
         ui.setupUi(this);
+        connectSlots();
+        
+        refreshData();
     }
     
-    public void cadastrarLivro(){
+    private void connectSlots() {
+//		ui.seekLoginTrans.
+		
+	}
+
+	private void refreshData() {
+		
+    	//ToDO Enter how refresh data...
+		
+	}
+
+	public void cadastrarLivro(){
     	
     }
     

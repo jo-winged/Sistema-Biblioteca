@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -211,7 +211,7 @@
            <widget class="QLineEdit" name="searchuser"/>
           </item>
           <item row="1" column="3">
-           <widget class="QDialogButtonBox" name="buttonBox_3">
+           <widget class="QDialogButtonBox" name="searchUserButton">
             <property name="maximumSize">
              <size>
               <width>70</width>
@@ -361,7 +361,7 @@
            <widget class="QLineEdit" name="nome_2"/>
           </item>
           <item row="0" column="2">
-           <widget class="QDialogButtonBox" name="buttonBox_5">
+           <widget class="QDialogButtonBox" name="seekLoginTrans">
             <property name="standardButtons">
              <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
             </property>
@@ -554,7 +554,7 @@
      <x>0</x>
      <y>0</y>
      <width>565</width>
-     <height>23</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

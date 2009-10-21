@@ -1,31 +1,28 @@
 package library.src;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CadastroLivros {
-	private ArrayList<Livro> livros;
-	private ArrayList<Integer> exemplares;
-//Humm dah pra usar um hash aqui.... Livros -> num exemplares
+	private ArrayList<Livro> livros ;
+	private HashMap<String, Integer> mapa; 
+	
 	public CadastroLivros() {
 		livros = new ArrayList<Livro>();
-		exemplares = new ArrayList<Integer>();
+		mapa = new HashMap<String, Integer>();
 	}
 
 	public void addBook(Livro book){
 		if (this.searchBookISBN(book.getISBN()) == null){
 			livros.add(book);
-			exemplares.add(0);
+			mapa.put(book.getISBN(), 0);
 		}
-
 	}
-	
-
 	
 	public void removeBook(String isbn){
 		int index = livros.indexOf(this.searchBookISBN(isbn));
 		this.livros.remove(index);
-		this.exemplares.remove(index);
-		
+		this.mapa.put(isbn, 0);
 	}
 	
 	public ArrayList<Livro> getBooksList(){
@@ -57,19 +54,12 @@ public class CadastroLivros {
 	}
 
 	public int getExemplares(Livro book) {
-		int index = livros.indexOf(book);
-		if (index < 0)
-				return -1;
-		return exemplares.get(index);
+		
+		return mapa.get(book.getISBN());
 	}
 
 	public void setExemplares(Livro book, int exemplares) {
-		int index = livros.indexOf(book);
-		if (index == -1)
-			return;
-		Integer k = this.exemplares.get(index);
-		k = exemplares;//ToDo alterar, não inserir
-
+		mapa.put(book.getISBN(), exemplares);
 	}
 
 	public int getAvaliables(Livro book ) {
@@ -79,4 +69,5 @@ public class CadastroLivros {
 	public int getNumBooks() {
 		return livros.size();
 	}
+
 }

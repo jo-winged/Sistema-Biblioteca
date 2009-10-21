@@ -23,4 +23,5 @@ public class Login extends QWidget {
         super(parent);
         ui.setupUi(this);
     }
+    
 }
