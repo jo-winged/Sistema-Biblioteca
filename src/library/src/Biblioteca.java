@@ -6,7 +6,7 @@ public class Biblioteca {
 	private CadastroUsuario usuarios;
 	private ArrayList<Reservas> reserva;
 	private ArrayList<Emprestimo> emp;
-	
+
 	public Biblioteca() {
 		usuarios = new CadastroUsuario();
 		livros = new CadastroLivros();
@@ -14,7 +14,7 @@ public class Biblioteca {
 	}		
 	public boolean setReservas(String ISBN, String login){
 		Reservas r = new Reservas();
-		
+
 		Livro l = new Livro();
 		l = livros.searchBookISBN(ISBN);
 		if(l != null)
@@ -27,11 +27,11 @@ public class Biblioteca {
 			r.setUser(u);
 		else
 			return false;
-		
+
 		reserva.add(r);
 		return true;
 	}	
-	
+
 	public boolean cancelaReserva(int ISBN, String login){
 		for(Reservas r:reserva){
 			if((r.getBook().getISBN().equals(ISBN)) && (r.getUser().getLogin().equals(login))){
@@ -41,30 +41,32 @@ public class Biblioteca {
 		}
 		return false;
 	}
-	
+
 	public boolean addEmprestimo(Usuario user, Livro book){
-		if((user.isProfessor() && this.numEmp(user) < 5) || (!user.isProfessor() && this.numEmp(user) < 3)){
-			Emprestimo e = new Emprestimo();
-			e.setUser(user);
-			e.setBook(book);
-			if(e.addBook(book)){//se naum tem multas...
-				this.emp.add(e);
-				return true;
-			}	
-		}			
+		if(book.borrow()){
+			if((user.isProfessor() && this.numEmp(user) < 5) || (!user.isProfessor() && this.numEmp(user) < 3)){
+				Emprestimo e = new Emprestimo();
+				e.setUser(user);
+				e.setBook(book);
+				if(e.addBook(book)){//se naum tem multas...
+					this.emp.add(e);
+					return true;
+				}	
+			}		
+		}
 		return false;//jah pegou todos os livros que tinha direito;
 	}
-	
+
 	public boolean devolve(Usuario user, Livro book){
 		for(Emprestimo e: this.emp){
 			if(e.getUser().equals(user) && e.getBook().equals(book)){
-				e.removeBook(book);
+				e.removeBook();
 				return true;
 			}				
 		}			
 		return false;
 	}
-	
+
 	public int numEmp(Usuario user){
 		int num = 0;
 		for(Emprestimo e : this.emp){
@@ -73,5 +75,8 @@ public class Biblioteca {
 			}
 		}
 		return num;
+	}
+	public void setCadUsers(CadastroUsuario cad) {
+		usuarios = cad;
 	}
 }
