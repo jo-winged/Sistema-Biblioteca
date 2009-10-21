@@ -1,18 +1,20 @@
 package library.src;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Emprestimo {
 	private Usuario user;
 	private Livro book;
-	Calendar date;
+	Date date;
 	int renews;
 
 
 	public Emprestimo() {
 		user = new Usuario();
 		book = new Livro();
-		date = Calendar.getInstance();
+		date = new Date();
 		renews = 0;
 	}
 	public Usuario getUser() {
@@ -27,18 +29,35 @@ public class Emprestimo {
 	public void setBook(Livro book) {
 		this.book = book;
 	}
-
+	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public int getRenews() {
+		return renews;
+	}
+	public void setRenews(int renews) {
+		this.renews = renews;
+	}
 	public boolean addBook(Livro book){//Armazenar data de emprestimo...
 		if(user.howManyFines() == 0){
+			this.date.setDate(this.date.getDate() + 7);
 			this.book = book;
 			return true;
 		}		
 		return false;//tem multas naum pagas;
 	}
 
-	public void removeBook(Livro book){//verificar se esta devolvendo no prazo
+	public void removeBook(){//verificar se esta devolvendo no prazo
+		Date dataEntrega = new Date();
+		if(this.date.compareTo(dataEntrega) < 0){
+			FinesControl fine = FinesControl.New();
+			fine.addFine(this.user, (dataEntrega.getDate() - this.date.getDate()));		
+		}			
 		this.book = null;
-
 	}
 	
 	@Override

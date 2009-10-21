@@ -18,7 +18,8 @@ public class Livro {
 		ISBN = "";
 		autores = new ArrayList<Pessoa>();
 		exemplares = 0;
-		reserved = 0;		
+		reserved = 0;
+		avaliables = 0;
 	}
 	public void setAutores(ArrayList<Pessoa> autores) {
 		this.autores = autores;
