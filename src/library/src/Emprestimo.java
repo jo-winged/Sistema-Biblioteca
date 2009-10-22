@@ -1,20 +1,18 @@
 package library.src;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import com.trolltech.qt.core.QDate;
 
 public class Emprestimo {
 	private Usuario user;
 	private Livro book;
-	Date date;
+	QDate date;
 	int renews;
 
 
 	public Emprestimo() {
 		user = new Usuario();
 		book = new Livro();
-		date = new Date();
+		date = new QDate();
 		renews = 0;
 	}
 	public Usuario getUser() {
@@ -30,10 +28,10 @@ public class Emprestimo {
 		this.book = book;
 	}
 	
-	public Date getDate() {
+	public QDate getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(QDate date) {
 		this.date = date;
 	}
 	public int getRenews() {
@@ -41,23 +39,6 @@ public class Emprestimo {
 	}
 	public void setRenews(int renews) {
 		this.renews = renews;
-	}
-	public boolean addBook(Livro book){//Armazenar data de emprestimo...
-		if(user.howManyFines() == 0){
-			this.date.setDate(this.date.getDate() + 7);
-			this.book = book;
-			return true;
-		}		
-		return false;//tem multas naum pagas;
-	}
-
-	public void removeBook(){//verificar se esta devolvendo no prazo //ToDo Refatorar para devolve
-		Date dataEntrega = new Date();
-		if(this.date.compareTo(dataEntrega) < 0){
-			FinesControl fine = FinesControl.New();
-			fine.addFine(this.user, (dataEntrega.getDate() - this.date.getDate()));		
-		}			
-		this.book = null;
 	}
 	
 	@Override

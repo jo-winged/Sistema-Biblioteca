@@ -45,42 +45,42 @@ public class Biblioteca {
 		return false;
 	}
 
-	public boolean addEmprestimo(Usuario user, Livro book){
-		if (livros.getAvaliables(book) > 1){
-			if((user.isProfessor() && this.numEmp(user) < 5) || (!user.isProfessor() && this.numEmp(user) < 3)){
-				Emprestimo e = new Emprestimo();
-				e.setUser(user);
-				e.setBook(book);
-				if(e.addBook(book)){//se naum tem multas...
-					this.emp.add(e);
-					return true;
-				}	
-			}		
-		}
-		return false;//jah pegou todos os livros que tinha direito;
-	}
+//	public boolean addEmprestimo(Usuario user, Livro book){
+//		if (livros.getAvaliables(book) > 1){
+//			if((user.isProfessor() && this.numEmp(user) < 5) || (!user.isProfessor() && this.numEmp(user) < 3)){
+//				Emprestimo e = new Emprestimo();
+//				e.setUser(user);
+//				e.setBook(book);
+//				if(e.addBook(book)){//se naum tem multas...
+//					this.emp.add(e);
+//					return true;
+//				}	
+//			}		
+//		}
+//		return false;//jah pegou todos os livros que tinha direito;
+//	}
 
-	public boolean devolve(Usuario user, Livro book){
-		for(Emprestimo e: this.emp){
-			if(e.getUser().equals(user) && e.getBook().equals(book)){
-				e.removeBook();
-				return true;
-			}				
-		}			
-			
-		return false;
-	}
+//	public boolean devolve(Usuario user, Livro book){
+//		for(Emprestimo e: this.emp){
+//			if(e.getUser().equals(user) && e.getBook().equals(book)){
+//				e.devolve();
+//				return true;
+//			}				
+//		}			
+//			
+//		return false;
+//	}
 
 
-	public int numEmp(Usuario user){
-		int num = 0;
-		for(Emprestimo e : this.emp){
-			if(e.getUser().equals(user)){
-				num++;
-			}
-		}
-		return num;
-	}
+//	public int numEmp(Usuario user){
+//		int num = 0;
+//		for(Emprestimo e : this.emp){
+//			if(e.getUser().equals(user)){
+//				num++;
+//			}
+//		}
+//		return num;
+//	}
 	public void setCadUsers(CadastroUsuario cad) {
 		usuarios = cad;
 	}

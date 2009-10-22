@@ -17,8 +17,13 @@ public class EmprestimoControl {
 		return EmprestimoControl.self;
 	}
 
-	 public void addEmprestimo(Emprestimo emp){
-	      emprestimos.add(emp);
+	 public boolean addEmprestimo(Emprestimo emp){
+		 if(emp.getUser().howManyFines() == 0){
+				emp.setDate(QDate.currentDate().addDays(7));
+                emprestimos.add(emp);
+				return true;
+			}		
+			return false;//tem multas naum pagas;
 	  }
 	  public int howManyBorrows(Livro l){
 	      int count = 0;
@@ -55,7 +60,11 @@ public class EmprestimoControl {
 	}
 
 	public void delivery(Emprestimo emp) {
-		
+		QDate dataEntrega = QDate.currentDate();
+        if(emp.getDate().compareTo(dataEntrega) < 0){
+                FinesControl fine = FinesControl.New();
+                fine.addFine(emp.getUser(), 0);
+        }
 		emprestimos.remove(emp);
 		
 	}
