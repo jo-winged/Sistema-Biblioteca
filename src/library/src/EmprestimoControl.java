@@ -17,13 +17,18 @@ public class EmprestimoControl {
 		return EmprestimoControl.self;
 	}
 
-	 public boolean addEmprestimo(Emprestimo emp){
+	 public void addEmprestimo(Emprestimo emp) throws Throwable{
 		 if(emp.getUser().howManyFines() == 0){
-				emp.setDate(QDate.currentDate().addDays(7));
-                emprestimos.add(emp);
-				return true;
-		}		
-			return false;//tem multas naum pagas;
+			 	if (CadastroLivros.New().getAvaliables(emp.getBook()) > 1){
+					emp.setDate(QDate.currentDate().addDays(7));
+	                emprestimos.add(emp);
+			 	}else{
+			 		throw new Throwable("No avaliable book!");
+			 	}
+			}else	{
+		 		throw new Throwable("User have Fines!");
+			}
+			
 	  }
 	  public int howManyBorrows(Livro l){
 	      int count = 0;

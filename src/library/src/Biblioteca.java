@@ -11,7 +11,7 @@ public class Biblioteca {
 	
 	public Biblioteca() {
 		usuarios = new CadastroUsuario();
-		livros = new CadastroLivros();
+		livros = CadastroLivros.New();
 		reserva = new ArrayList<Reservas>();
 		autores = new CadastroAutores();
 	}		
@@ -63,7 +63,7 @@ public class Biblioteca {
 //	public boolean devolve(Usuario user, Livro book){
 //		for(Emprestimo e: this.emp){
 //			if(e.getUser().equals(user) && e.getBook().equals(book)){
-//				e.devolve();
+//				e.removeBook();
 //				return true;
 //			}				
 //		}			
@@ -72,15 +72,15 @@ public class Biblioteca {
 //	}
 
 
-//	public int numEmp(Usuario user){
-//		int num = 0;
-//		for(Emprestimo e : this.emp){
-//			if(e.getUser().equals(user)){
-//				num++;
-//			}
-//		}
-//		return num;
-//	}
+	public int numEmp(Usuario user){
+		int num = 0;
+		for(Emprestimo e : this.emp){
+			if(e.getUser().equals(user)){
+				num++;
+			}
+		}
+		return num;
+	}
 	public void setCadUsers(CadastroUsuario cad) {
 		usuarios = cad;
 	}
