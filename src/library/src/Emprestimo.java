@@ -63,7 +63,7 @@ public class Emprestimo {
 	@Override
 	public boolean equals(Object obj) {
 		Emprestimo e = (Emprestimo) obj;
-		return this.user.equals(e.getUser());
+		return (this.user.equals(e.getUser()) && this.book.equals(e.getBook()));
 	}
 
 }
