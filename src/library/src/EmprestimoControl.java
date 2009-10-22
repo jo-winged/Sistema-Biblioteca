@@ -22,7 +22,7 @@ public class EmprestimoControl {
 				emp.setDate(QDate.currentDate().addDays(7));
                 emprestimos.add(emp);
 				return true;
-			}		
+		}		
 			return false;//tem multas naum pagas;
 	  }
 	  public int howManyBorrows(Livro l){
@@ -63,9 +63,23 @@ public class EmprestimoControl {
 		QDate dataEntrega = QDate.currentDate();
         if(emp.getDate().compareTo(dataEntrega) < 0){
                 FinesControl fine = FinesControl.New();
-                fine.addFine(emp.getUser(), 0);
+                fine.addFine(emp.getUser(), usefulDays(emp.getDate(), dataEntrega));
         }
 		emprestimos.remove(emp);
 		
+	}
+	
+	public int usefulDays(QDate date1, QDate date2){
+		//pega a diferenca entre os dias faz um for e ve o dia da semana de cada dia...
+		int dif = date1.daysTo(date2);
+		int weekend = 0, days;
+
+		while(dif != 0){
+			if(date1.dayOfWeek() == 1 || date1.dayOfWeek() == 7){
+				weekend++;
+			}
+			dif--;
+		}
+		return (date1.daysTo(date2)-weekend);
 	}
 }

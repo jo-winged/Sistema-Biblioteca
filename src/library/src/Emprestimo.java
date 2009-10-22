@@ -37,8 +37,13 @@ public class Emprestimo {
 	public int getRenews() {
 		return renews;
 	}
-	public void setRenews(int renews) {
+	protected void setRenews(int renews) {
 		this.renews = renews;
+	}
+	
+	public void renew(){
+		this.setDate(QDate.currentDate().addDays(7));
+		this.setRenews(this.getRenews()+1);
 	}
 	
 	@Override
