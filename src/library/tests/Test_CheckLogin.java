@@ -1,14 +1,12 @@
 package library.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import library.interfaces.CheckPassword;
 
 import org.junit.Test;
 
-import com.trolltech.qt.core.Qt;
 import com.trolltech.qt.gui.QApplication;
-import com.trolltech.qt.gui.QDialog;
 
 
 public class Test_CheckLogin {

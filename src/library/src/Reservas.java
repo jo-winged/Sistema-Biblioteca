@@ -1,8 +1,12 @@
 package library.src;
 
+import com.trolltech.qt.core.QDate;
+
 public class Reservas {
 	private Usuario user;
 	private Livro book;
+	private QDate reservedDate;
+	
 	public Reservas() {
 		user = new Usuario();
 		book = new Livro();
@@ -22,8 +26,18 @@ public class Reservas {
 
 	public boolean equals(Object obj) {
 		Reservas r = (Reservas) obj;
-		if (r.getBook().equals(this.getBook()) && r.getUser().equals(this.getUser()) )
-		    return true;
-		return false;
+		if (r.getBook().equals(this.getBook()) &&
+			r.getUser().equals(this.getUser()) &&
+			r.getReservedDate().equals(this.getReservedDate())){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public void setReservedDate(QDate reservedDate) {
+		this.reservedDate = reservedDate;
+	}
+	public QDate getReservedDate() {
+		return reservedDate;
 	}
 }

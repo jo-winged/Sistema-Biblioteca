@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CadastroLivros {
+	private static CadastroLivros self = null;
 	private ArrayList<Livro> livros ;
 	private HashMap<String, Integer> mapa; 
 	
-	public CadastroLivros() {
+	private CadastroLivros() {
 		livros = new ArrayList<Livro>();
 		mapa = new HashMap<String, Integer>();
 	}
@@ -68,6 +69,12 @@ public class CadastroLivros {
 
 	public int getNumBooks() {
 		return livros.size();
+	}
+
+	public static CadastroLivros New() {
+		if (CadastroLivros.self == null)
+			CadastroLivros.self  = new CadastroLivros();
+		return CadastroLivros.self;
 	}
 
 }

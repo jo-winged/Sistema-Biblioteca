@@ -23,16 +23,15 @@ public class ReserveControl {
 	      }
 	      return reserved;
 	}
-	public void setReserve(Reservas reserve){
+	public void addReserve(Reservas reserve){
 	    reserves.add(reserve);
 	}
 
 	public void removeReserve(Reservas reserve){
 	      //ToDo Tem alguma função no arraylist para remover objetos equais (pelo equals)?
-	      for (Reservas r:reserves){
-		    if (reserve.equals(r))
-			reserves.remove(r);
-	      }
+	      
+			reserves.remove(reserve);
+	    
 	}
 
 	public int getNumReservas() {
