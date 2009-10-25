@@ -13,6 +13,7 @@ import library.src.Livro;
 import library.src.Reservas;
 import library.src.ReserveControl;
 import library.src.Usuario;
+import library.src.Fine;
 
 import org.junit.Test;
 
@@ -108,6 +109,45 @@ public class Test_Sistema_Biblioteca {
 		assertEquals(0,EmprestimoControl.New().howManyBorrows(book));
 		assertEquals(0,EmprestimoControl.New().howManyBorrows(user));
 		assertEquals(3, biblioteca.getCadastroLivros().getAvaliables(book));
+	}
+	
+	@Test
+	public void testNumDaysOfFine(){
+		Emprestimo emp, emp2;
+		
+		Livro book = biblioteca.getCadastroLivros().searchBookISBN("ISBN");
+		Usuario user = biblioteca.getCadastroUsuarios().buscaUsuarioPorLogin("parrot");
+		QDate date = new QDate(2009,10,23);
+		emp = new Emprestimo();
+		emp.setUser(user);
+		emp.setBook(book);
+		emp.setDate(date);
+		try {
+			EmprestimoControl.New().addEmprestimo(emp);
+		} catch (Throwable e) {
+			fail("Shoud borrow!");
+			e.printStackTrace();
+		}
+		EmprestimoControl.New().delivery(emp);
+		assertEquals(0, user.howManyFines());
+		
+		QDate date2 = new QDate(2009, 10, 19);
+		emp2 = new Emprestimo();
+		emp2.setUser(user);
+		emp2.setBook(book);
+		emp2.setDate(date2);
+		try {
+			EmprestimoControl.New().addEmprestimo(emp2);
+		} catch (Throwable e) {
+			fail("Shoud borrow!");
+			e.printStackTrace();
+		}
+		EmprestimoControl.New().delivery(emp2);
+		assertEquals(1, user.howManyFines());
+		
+		for(Fine f : FinesControl.New().getFines(user)){
+			assertEquals(3.0, f.fineValue(), 0.001);	
+		}
 	}
 
 	@Test

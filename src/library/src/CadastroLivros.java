@@ -46,12 +46,13 @@ public class CadastroLivros {
 		return null;
 	}
 	
-	public Livro searchBookTitle(String title){
+	public ArrayList<Livro> searchBookTitle(String title){
+		ArrayList<Livro> list = new ArrayList<Livro>();
 		for(Livro book:livros){
 			if(book.getTitulo().contains(title))
-				return book;
+				list.add(book);
 		}
-		return null;
+		return list;
 	}
 
 	public int getExemplares(Livro book) {

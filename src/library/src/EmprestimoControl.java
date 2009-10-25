@@ -20,7 +20,10 @@ public class EmprestimoControl {
 	 public void addEmprestimo(Emprestimo emp) throws Throwable{
 		 if(emp.getUser().howManyFines() == 0){
 			 	if (CadastroLivros.New().getAvaliables(emp.getBook()) > 1){
-					emp.setDate(QDate.currentDate().addDays(7));
+			 		if(emp.getUser().isProfessor())
+			 			//emp.setDate(QDate.currentDate().addDays(15));
+			 		//else
+			 			//p.setDate(QDate.currentDate().addDays(7));
 	                emprestimos.add(emp);
 			 	}else{
 			 		throw new Throwable("No avaliable book!");
@@ -77,14 +80,14 @@ public class EmprestimoControl {
 	public int usefulDays(QDate date1, QDate date2){
 		//pega a diferenca entre os dias faz um for e ve o dia da semana de cada dia...
 		int dif = date1.daysTo(date2);
-		int weekend = 0, days;
-
-		while(dif != 0){
-			if(date1.dayOfWeek() == 1 || date1.dayOfWeek() == 7){
+		int weekend = 0;
+		int days = dif;
+		while(dif >= 0){
+			if(date1.addDays(1).dayOfWeek() == 1 || date1.addDays(1).dayOfWeek() == 7){
 				weekend++;
 			}
 			dif--;
 		}
-		return (date1.daysTo(date2)-weekend);
+		return (days-weekend);
 	}
 }

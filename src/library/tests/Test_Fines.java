@@ -1,10 +1,15 @@
 package library.tests;
 
 import static org.junit.Assert.*;
+import library.src.Emprestimo;
+import library.src.EmprestimoControl;
 import library.src.Fine;
+import library.src.FinesControl;
 import library.src.Usuario;
 
 import org.junit.Test;
+
+import com.trolltech.qt.core.QDate;
 
 public class Test_Fines {
 
@@ -12,10 +17,7 @@ public class Test_Fines {
 		Fine fine = new Fine();
 		return fine;
 	}
-	
-	
-	
-	
+
 	@Test
 	public void testFineValue() {
 		Fine fine = createFine();
@@ -52,5 +54,4 @@ public class Test_Fines {
 		assertTrue(user.howManyFines() == 0);
 		assertTrue(fine.wasPaid());
 	}
-
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0" language="jambi">
- <class>Other</class>
- <widget class="QMainWindow" name="Other">
+ <class>aluno</class>
+ <widget class="QMainWindow" name="aluno">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,12 +13,15 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -92,7 +95,7 @@
           <item row="7" column="1">
            <widget class="QLineEdit" name="ed"/>
           </item>
-          <item row="6" column="4">
+          <item row="6" column="4" colspan="2">
            <widget class="QPushButton" name="pushButton_2">
             <property name="text">
              <string>Nova...</string>
@@ -106,9 +109,6 @@
             </property>
            </widget>
           </item>
-          <item row="7" column="4">
-           <widget class="QLineEdit" name="ano"/>
-          </item>
           <item row="8" column="0">
            <widget class="QLabel" name="label_8">
             <property name="text">
@@ -116,7 +116,7 @@
             </property>
            </widget>
           </item>
-          <item row="8" column="1" colspan="4">
+          <item row="8" column="1" colspan="3">
            <widget class="QLineEdit" name="isbn"/>
           </item>
           <item row="9" column="0">
@@ -129,17 +129,7 @@
           <item row="9" column="1">
            <widget class="QLineEdit" name="exemplares"/>
           </item>
-          <item row="10" column="0" colspan="5">
-           <widget class="QDialogButtonBox" name="buttonBox_2">
-            <property name="standardButtons">
-             <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
-            </property>
-            <property name="centerButtons">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="4">
+          <item row="0" column="5">
            <widget class="QDialogButtonBox" name="buttonBox">
             <property name="standardButtons">
              <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
@@ -149,7 +139,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0" colspan="5">
+          <item row="1" column="0" colspan="6">
            <widget class="Line" name="line_2">
             <property name="orientation">
              <enum>com.trolltech.qt.core.Qt.Orientation.Horizontal</enum>
@@ -166,14 +156,14 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="3" colspan="2">
+          <item row="5" column="3" colspan="3">
            <widget class="QPushButton" name="pushButton">
             <property name="text">
              <string>Novo...</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="4">
+          <item row="4" column="4" colspan="2">
            <widget class="QComboBox" name="autor"/>
           </item>
           <item row="4" column="3">
@@ -187,6 +177,42 @@
             <property name="text">
              <string>Add</string>
             </property>
+           </widget>
+          </item>
+          <item row="7" column="4">
+           <widget class="QLineEdit" name="ano"/>
+          </item>
+          <item row="10" column="5">
+           <widget class="QPushButton" name="pushButton_10">
+            <property name="text">
+             <string>Limpar</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="4">
+           <widget class="QPushButton" name="pushButton_9">
+            <property name="text">
+             <string>Cadastrar</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QComboBox" name="typeBook">
+            <item>
+             <property name="text">
+              <string>ISBN</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Editora</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Título</string>
+             </property>
+            </item>
            </widget>
           </item>
          </layout>
@@ -210,7 +236,7 @@
           <item row="1" column="1" colspan="2">
            <widget class="QLineEdit" name="searchuser"/>
           </item>
-          <item row="1" column="3">
+          <item row="1" column="4">
            <widget class="QDialogButtonBox" name="searchUserButton">
             <property name="maximumSize">
              <size>
@@ -226,7 +252,7 @@
             </property>
            </widget>
           </item>
-          <item row="4" column="0" colspan="4">
+          <item row="7" column="0" colspan="5">
            <widget class="QLabel" name="label_11">
             <property name="maximumSize">
              <size>
@@ -246,64 +272,54 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="0">
+          <item row="8" column="0">
            <widget class="QLabel" name="label_12">
             <property name="text">
              <string>Nome:</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="1" colspan="3">
+          <item row="8" column="1" colspan="4">
            <widget class="QLineEdit" name="nome"/>
           </item>
-          <item row="6" column="0">
+          <item row="10" column="0">
            <widget class="QLabel" name="label_13">
             <property name="text">
              <string>Login:</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="1" colspan="2">
+          <item row="10" column="1" colspan="2">
            <widget class="QLineEdit" name="login"/>
           </item>
-          <item row="7" column="0">
+          <item row="11" column="0">
            <widget class="QLabel" name="label_14">
             <property name="text">
              <string>Senha:</string>
             </property>
            </widget>
           </item>
-          <item row="7" column="1" colspan="2">
+          <item row="11" column="1" colspan="2">
            <widget class="QLineEdit" name="pass"/>
           </item>
-          <item row="8" column="0">
+          <item row="12" column="0">
            <widget class="QLabel" name="label_15">
             <property name="text">
              <string>Repetir Senha:</string>
             </property>
            </widget>
           </item>
-          <item row="8" column="1" colspan="2">
+          <item row="12" column="1" colspan="2">
            <widget class="QLineEdit" name="pass2"/>
           </item>
-          <item row="9" column="0" colspan="4">
-           <widget class="QDialogButtonBox" name="buttonBox_4">
-            <property name="standardButtons">
-             <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
-            </property>
-            <property name="centerButtons">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0" rowspan="2" colspan="4">
+          <item row="3" column="0" rowspan="2" colspan="5">
            <widget class="Line" name="line">
             <property name="orientation">
              <enum>com.trolltech.qt.core.Qt.Orientation.Horizontal</enum>
             </property>
            </widget>
           </item>
-          <item row="0" column="0" colspan="4">
+          <item row="0" column="0" colspan="5">
            <spacer name="verticalSpacer_2">
             <property name="orientation">
              <enum>com.trolltech.qt.core.Qt.Orientation.Vertical</enum>
@@ -316,7 +332,7 @@
             </property>
            </spacer>
           </item>
-          <item row="10" column="0" colspan="4">
+          <item row="14" column="0" colspan="5">
            <spacer name="verticalSpacer">
             <property name="orientation">
              <enum>com.trolltech.qt.core.Qt.Orientation.Vertical</enum>
@@ -328,6 +344,80 @@
              </size>
             </property>
            </spacer>
+          </item>
+          <item row="9" column="0" colspan="2">
+           <widget class="QRadioButton" name="professor">
+            <property name="text">
+             <string>Professor</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="2" colspan="3">
+           <widget class="QRadioButton" name="aluno_2">
+            <property name="text">
+             <string>Aluno</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="13" column="4">
+           <widget class="QPushButton" name="pushButton_11">
+            <property name="text">
+             <string>Limpar</string>
+            </property>
+           </widget>
+          </item>
+          <item row="13" column="3">
+           <widget class="QPushButton" name="pushButton_12">
+            <property name="text">
+             <string>Cadastrar</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" rowspan="2" colspan="5">
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>com.trolltech.qt.core.Qt.Orientation.Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0" colspan="5">
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>com.trolltech.qt.core.Qt.Orientation.Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="3">
+           <widget class="QComboBox" name="comboBox_2">
+            <item>
+             <property name="text">
+              <string>Login</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Nome</string>
+             </property>
+            </item>
+           </widget>
           </item>
          </layout>
         </item>
@@ -554,7 +644,7 @@
      <x>0</x>
      <y>0</y>
      <width>565</width>
-     <height>24</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

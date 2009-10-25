@@ -52,4 +52,4 @@ public class Emprestimo {
 		return (this.user.equals(e.getUser()) && this.book.equals(e.getBook()));
 	}
 
-}
+} 

@@ -43,6 +43,7 @@ public class FinesControl {
 		Fine newFine = new Fine();
 		newFine.setNumDays(i);
 		newFine.setUser(user);
+		finesNotPaid.add(newFine);
 	}
 
 	public ArrayList<Fine> getFines(Usuario user) {

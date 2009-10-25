@@ -2,6 +2,7 @@ package library.interfaces;
 
 import library.src.Biblioteca;
 import library.src.CadastroAutores;
+import library.src.CadastroLivros;
 
 import com.trolltech.qt.core.QObject;
 import com.trolltech.qt.gui.*;
@@ -48,6 +49,22 @@ public class Other extends QMainWindow {
     }
     
     public void cadastrarUsuario(){
+    	
+    }
+    
+    public void searchBook(){
+    	if(ui.typeBook.current().text().equals("ISBN")){
+    		CadastroLivros.New().searchBookISBN(ui.searchbook1.text());
+    	}else
+    		if(ui.typeBook.text().equals("Editora")){
+    			CadastroLivros.New().searchBookEditora(ui.searchbook1.text());   			
+    		}else
+    			if(ui.typeBook.current().text().equals("Título")){
+    				CadastroLivros.New().searchBookTitle(yui.searchbook1.text());
+    			}
+    }
+    
+    public void searchUser(){
     	
     }
  

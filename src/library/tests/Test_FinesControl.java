@@ -4,11 +4,15 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import library.src.Emprestimo;
+import library.src.EmprestimoControl;
 import library.src.Fine;
 import library.src.FinesControl;
 import library.src.Usuario;
 
 import org.junit.Test;
+
+import com.trolltech.qt.core.QDate;
 
 public class Test_FinesControl {
 
@@ -76,7 +80,5 @@ public class Test_FinesControl {
 		control.addFine(user2, 3);
 		
 		this.cleanUp();
-	}
-	
-	
+	}	
 }
