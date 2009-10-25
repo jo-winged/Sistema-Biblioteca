@@ -11,4 +11,11 @@ public class Pessoa {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Pessoa p = (Pessoa) obj;
+		return p.getNome().equals(this.getNome());
+	}
+	
 }
