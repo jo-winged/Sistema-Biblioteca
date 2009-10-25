@@ -2,8 +2,6 @@ package library.tests;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-
 import library.src.Emprestimo;
 import library.src.EmprestimoControl;
 import library.src.Fine;
@@ -72,12 +70,12 @@ public class Test_FinesControl {
 		control.addFine(user, 3);
 		assertTrue(user.howManyFines() == 1);
 		
-		ArrayList<Fine> fines = control.getFines(user);
-		assertTrue(fines.size() == 1);
 		
-		Usuario user2 = new Usuario();
-		user2.setLogin("Polly");
-		control.addFine(user2, 3);
+		assertEquals(1, control.FinesNotPaid());
+		
+		control.pay(control.getFines(user).get(0));
+		assertEquals(0, control.FinesNotPaid());
+		assertEquals(1, control.FinesPaid());
 		
 		this.cleanUp();
 	}	

@@ -10,7 +10,9 @@ import library.src.Usuario;
 public class Test_CadastroUsuario extends TestCase {
 
 	public void testCadastroUsuario() {
-		fail("Not yet implemented");
+		CadastroUsuario cad = new CadastroUsuario();
+		assertEquals(0, cad.getNumUsers());
+		
 	}
 
 	public void testGetUsuarios() {
@@ -106,7 +108,16 @@ public class Test_CadastroUsuario extends TestCase {
 	}
 
 	public void testValidPassword() {
-		fail("Not yet implemented");
+		Usuario user = new Usuario();
+		user.setLogin("xxx");
+		user.setSenha("xxx");
+		CadastroUsuario cad = new CadastroUsuario();
+		try{
+			cad.insertUser(user);
+			assertTrue(cad.validPassword("xxx", "xxx"));
+		}catch (Throwable e) {
+			fail("Fail");
+		}
 	}
 
 }

@@ -9,7 +9,7 @@ import com.trolltech.qt.gui.*;
 
 public class Other extends QMainWindow {
 
-    Ui_Other ui = new Ui_Other();
+//    Ui_Other ui = new Ui_Other();
     Biblioteca bib = new Biblioteca();
 
     public static void main(String[] args) {
@@ -22,12 +22,12 @@ public class Other extends QMainWindow {
     }
 
     public Other() {
-        ui.setupUi(this);
+//        ui.setupUi(this);
     }
 
     public Other(QWidget parent) {
         super(parent);
-        ui.setupUi(this);
+//        ui.setupUi(this);
         connectSlots();
         
         refreshData();
@@ -53,15 +53,15 @@ public class Other extends QMainWindow {
     }
     
     public void searchBook(){
-    	if(ui.typeBook.current().text().equals("ISBN")){
-    		CadastroLivros.New().searchBookISBN(ui.searchbook1.text());
-    	}else
-    		if(ui.typeBook.text().equals("Editora")){
-    			CadastroLivros.New().searchBookEditora(ui.searchbook1.text());   			
-    		}else
-    			if(ui.typeBook.current().text().equals("Título")){
-    				CadastroLivros.New().searchBookTitle(yui.searchbook1.text());
-    			}
+//    	if(ui.ISBNSearch.isChecked()){
+//    		CadastroLivros.New().searchBookISBN(ui.searchbook1.text());
+//    	}else
+//    		if(ui..text().equals("Editora")){
+//    			CadastroLivros.New().searchBookEditora(ui.searchbook1.text());   			
+//    		}else
+//    			if(ui.Au.current().text().equals("Título")){
+//    				CadastroLivros.New().searchBookTitle(ui.searchbook1.text());
+//    			}
     }
     
     public void searchUser(){
