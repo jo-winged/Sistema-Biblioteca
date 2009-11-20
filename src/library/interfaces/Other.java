@@ -1,16 +1,10 @@
 package library.interfaces;
 
-import library.src.Biblioteca;
-import library.src.CadastroAutores;
-import library.src.CadastroLivros;
-
-import com.trolltech.qt.core.QObject;
 import com.trolltech.qt.gui.*;
 
 public class Other extends QMainWindow {
 
-//    Ui_Other ui = new Ui_Other();
-    Biblioteca bib = new Biblioteca();
+    Ui_Other ui = new Ui_Other();
 
     public static void main(String[] args) {
         QApplication.initialize(args);
@@ -22,19 +16,19 @@ public class Other extends QMainWindow {
     }
 
     public Other() {
-//        ui.setupUi(this);
+        ui.setupUi(this);
     }
 
     public Other(QWidget parent) {
         super(parent);
-//        ui.setupUi(this);
+        ui.setupUi(this);
         connectSlots();
         
         refreshData();
     }
     
     private void connectSlots() {
-//		ui.seekLoginTrans.
+		//ui.seekLoginTrans.
 		
 	}
 

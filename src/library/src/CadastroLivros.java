@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class CadastroLivros {
 	private static CadastroLivros self = null;
 	private ArrayList<Livro> livros ;
-	private HashMap<String, Integer> mapa; 
+	private HashMap<String, Integer> mapa;
 	
 	private CadastroLivros() {
 		livros = new ArrayList<Livro>();

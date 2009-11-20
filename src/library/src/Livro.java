@@ -4,13 +4,17 @@ import java.util.ArrayList;
 
 //autores, edição, editora, nome, ano
 public class Livro {
-	private String editora, titulo, ISBN;
+	private String titulo, ISBN, idioma;
 	private int ano, edition;
+	Categoria cat;
+	Editora editora;
 	
 	private ArrayList<Pessoa> autores;
 	public Livro() {
-		editora = "";
+		editora = new Editora();
+		cat = new Categoria();
 		titulo = "";
+		idioma = "";
 		ano = 0;
 		edition = 0;
 		ISBN = "";
@@ -24,11 +28,18 @@ public class Livro {
 		return autores;
 	}
 	
-	public String getEditora() {
+	public Editora getEditora() {
 		return editora;
 	}
-	public void setEditora(String editora) {
+	public void setEditora(Editora editora) {
 		this.editora = editora;
+	}
+	
+	public Categoria getCat() {
+		return cat;
+	}
+	public void setCat(Categoria cat) {
+		this.cat = cat;
 	}
 
 	public String getTitulo() {
@@ -55,7 +66,12 @@ public class Livro {
 	public void setISBN(String ISBN) {
 		this.ISBN = ISBN;
 	}
-
+	public String getIdioma() {
+		return idioma;
+	}
+	public void setIdioma(String idioma) {
+		this.idioma = idioma;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		Livro l = (Livro) obj;

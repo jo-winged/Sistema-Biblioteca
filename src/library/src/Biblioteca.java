@@ -8,12 +8,16 @@ public class Biblioteca {
 	private ArrayList<Emprestimo> emp;
 
 	private CadastroAutores autores;
+	private CadastroCategoria categorias;
+	private CadastroEditoras editoras;
 	
 	public Biblioteca() {
 		usuarios = new CadastroUsuario();
 		livros = CadastroLivros.New();
 		reserva = new ArrayList<Reservas>();
 		autores = new CadastroAutores();
+		categorias  = new CadastroCategoria();
+		editoras = new CadastroEditoras();
 	}		
 	public boolean setReservas(String ISBN, String login){
 		Reservas r = new Reservas();
@@ -85,7 +89,6 @@ public class Biblioteca {
 		usuarios = cad;
 	}
 
-
 	public CadastroUsuario getCadastroUsuarios() {
 		return usuarios;
 	}
@@ -93,8 +96,14 @@ public class Biblioteca {
 		return livros;
 	}
 	public CadastroAutores getCadastroAutores() {
-		
 		return autores;
 	}
+	public CadastroCategoria getCategorias() {
+		return categorias;
+	}
+	public CadastroEditoras getEditoras() {
+		return editoras;
+	}
+	
 
 }

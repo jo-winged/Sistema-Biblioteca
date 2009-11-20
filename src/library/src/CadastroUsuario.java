@@ -23,6 +23,7 @@ public class CadastroUsuario {
 		}
 		usuarios.add(user);
 	}
+	
 	public boolean removeUser(Usuario user){
 		if (user == null)
 			return false;

@@ -2,6 +2,9 @@
 <ui version="4.0" language="jambi">
  <class>aluno</class>
  <widget class="QMainWindow" name="aluno">
+  <property name="windowModality">
+   <enum>com.trolltech.qt.core.Qt.WindowModality.ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -21,7 +24,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -661,7 +664,7 @@
      <x>0</x>
      <y>0</y>
      <width>563</width>
-     <height>26</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>

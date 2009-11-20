@@ -77,7 +77,7 @@ public class Test_Sistema_Biblioteca {
 	public void testBorrow() {
 		Livro book = biblioteca.getCadastroLivros().searchBookISBN("ISBN");
 		Usuario user = biblioteca.getCadastroUsuarios().buscaUsuarioPorLogin("parrot");
-		QDate date = new QDate(2009,10,22);
+		QDate date = new QDate(2009,10,29);
 		Emprestimo emp = new Emprestimo();
 		emp.setUser(user);
 		emp.setBook(book);

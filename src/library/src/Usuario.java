@@ -26,6 +26,11 @@ public class Usuario extends Pessoa{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public String getSenha(){
+		return this.senha;
+	}
+	
 	public void setProfessor(boolean professor) {
 		this.professor = professor;
 	}

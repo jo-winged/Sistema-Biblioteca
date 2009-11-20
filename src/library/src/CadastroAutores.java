@@ -11,7 +11,6 @@ public class CadastroAutores {
 	}
 	
 	public int getNumAuthors() {
-		// TODO Auto-generated method stub
 		return autores.size();
 	}
 
