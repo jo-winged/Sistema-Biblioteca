@@ -37,7 +37,7 @@ public class Emprestimo {
 	public int getRenews() {
 		return renews;
 	}
-	protected void setRenews(int renews) {
+	public void setRenews(int renews) {
 		this.renews = renews;
 	}
 	

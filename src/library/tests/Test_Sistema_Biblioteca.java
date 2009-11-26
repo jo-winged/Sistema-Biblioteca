@@ -6,6 +6,7 @@ package library.tests;
 import static org.junit.Assert.*;
 import library.src.Biblioteca;
 import library.src.CadastroLivros;
+import library.src.Editora;
 import library.src.Emprestimo;
 import library.src.EmprestimoControl;
 import library.src.FinesControl;
@@ -64,7 +65,9 @@ public class Test_Sistema_Biblioteca {
 		Livro book = new Livro();
 		book.setAno(1);
 		book.setEdition(1);
-		book.setEditora("Edit edit");
+		Editora ed = new Editora();
+		ed.setNome("Edit edit");
+		book.setEditora(ed);
 		book.setISBN("ISBN");
 		book.setTitulo("Lá e devolta, por Bilbo Bolseiro");
 		biblioteca.getCadastroLivros().addBook(book);

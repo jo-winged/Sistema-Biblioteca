@@ -71,7 +71,7 @@ public class EmprestimoControl {
 		QDate dataEntrega = QDate.currentDate();
         if(emp.getDate().compareTo(dataEntrega) < 0){
                 FinesControl fine = FinesControl.New();
-                fine.addFine(emp.getUser(), usefulDays(emp.getDate(), dataEntrega));
+                fine.addFine(emp.getUser(), usefulDays(emp.getDate(), dataEntrega), emp);
         }
 		emprestimos.remove(emp);
 		

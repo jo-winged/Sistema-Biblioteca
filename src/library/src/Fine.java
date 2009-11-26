@@ -5,19 +5,36 @@ public class Fine {
 	private long numDays;
 	Usuario user;
 	boolean paid;
+	Emprestimo emp;
 	
 	public Fine() {
+		emp = new Emprestimo();
 		paid = false;
 	}
 	
+	public Emprestimo getEmp() {
+		return emp;
+	}
+
+	public void setEmp(Emprestimo emp) {
+		this.emp = emp;
+	}
+
 	public double fineValue(){
 		return DayValue * numDays;
 	}
+
 	public void setNumDays(long days){
 		numDays = days;
 	}
 	
-	public Usuario getUser(){return user;}
+	public long getNumDays(){
+		return numDays;
+	}
+	
+	public Usuario getUser(){
+		return user;
+	}
 	
 	
 	public void setUser(Usuario new_value){

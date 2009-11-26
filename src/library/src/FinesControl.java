@@ -39,10 +39,11 @@ public class FinesControl {
 		return finesNotPaid.size();
 	}
 
-	public void addFine(Usuario user, int i) {
+	public void addFine(Usuario user, int i, Emprestimo e) {
 		Fine newFine = new Fine();
 		newFine.setNumDays(i);
 		newFine.setUser(user);
+		newFine.setEmp(e);
 		finesNotPaid.add(newFine);
 	}
 

@@ -19,7 +19,7 @@ public class Connect {
 		Class.forName("org.postgresql.Driver");
 		this.c = DriverManager.getConnection(
 				"jdbc:postgresql://localhost/dbLibrary", 
-				"postgres", 
+				"jo", 
 				"joseane");
 	}
 	public static Connect New() throws ClassNotFoundException, SQLException{

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 //autores, edição, editora, nome, ano
 public class Livro {
 	private String titulo, ISBN, idioma;
-	private int ano, edition;
+	private int ano, edition, numExemplares;
 	Categoria cat;
 	Editora editora;
 	
@@ -21,6 +21,15 @@ public class Livro {
 		autores = new ArrayList<Pessoa>();
 
 	}
+		
+	public int getNumExemplares() {
+		return numExemplares;
+	}
+
+	public void setNumExemplares(int numExemplares) {
+		this.numExemplares = numExemplares;
+	}
+
 	public void setAutores(ArrayList<Pessoa> autores) {
 		this.autores = autores;
 	}
